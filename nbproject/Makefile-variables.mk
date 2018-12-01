@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=grade_calculator
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/grade_calculator
+CND_ARTIFACT_NAME_Debug=wbgc
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/wbgc
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=gradecalculator.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/gradecalculator.tar
+CND_PACKAGE_NAME_Debug=wbgc.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/wbgc.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=grade_calculator
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/grade_calculator
+CND_ARTIFACT_NAME_Release=wbgc
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/wbgc
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=gradecalculator.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/gradecalculator.tar
+CND_PACKAGE_NAME_Release=wbgc.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/wbgc.tar
 #
 # include compiler specific variables
 #

@@ -28,7 +28,7 @@ int main(void) {
      * and the number user inputted otherwise
      */
     system("clear");
-    printf("Grade Calculator version 1.0\nCopyleft Iyad Eltifi\n\n");
+    printf("Weight Based Grade Calculator version 0.1\n\n");
     do{
     __fpurge(stdin);
     printf("Enter amount of different scales (maximum %d)\n: ", MAX_SCORE_AMOUNT);
