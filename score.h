@@ -38,7 +38,7 @@ scale calculate_score(int index){
     float sanitized_input; //Receives sanitized user input
     scale new_scale; //Scale object that holds scale attributes
     printf("What's the name of scale #%d?\n: ", index);
-    fgets(new_scale.label, BUFFER, stdin);
+    fgets(new_scale.label, MAX_NAME_LENGTH, stdin);
     system("clear");
     //removes the newline added by fgets
     strtok(new_scale.label, "\n");

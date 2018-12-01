@@ -12,6 +12,7 @@
 #define MAX_SCORE_AMOUNT 5
 #define MAX_INPUT_AMOUNT 5
 #define MAX_LABEL_AMOUNT 50
+#define MAX_NAME_LENGTH 20
 #define BUFFER 2096
 
 #endif /* CONSTANTS_H */
