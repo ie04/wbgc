@@ -1,7 +1,7 @@
 
 /* 
  * File:   weight.h
- * Author: Iyad Eltifi
+ * Author: ie04
  *
  * Created on November 15, 2018, 6:15 PM
  */

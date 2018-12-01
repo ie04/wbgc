@@ -1,7 +1,7 @@
 
 /* 
  * File:   not_equals_yno.h
- * Author: Iyad Eltifi
+ * Author: ie04
  *
  * Created on November 25, 2018, 1:57 PM
  */

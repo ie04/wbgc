@@ -1,7 +1,7 @@
 
 /* 
  * File:   average.h
- * Author: Iyad Eltifi
+ * Author: ie04
  *
  * Created on November 15, 2018, 5:54 PM
  */

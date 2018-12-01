@@ -1,7 +1,7 @@
 
 /* 
  * File:   error.h
- * Author: Iyad Eltifi
+ * Author: ie04
  *
  * Created on November 20, 2018, 4:50 PM
  */

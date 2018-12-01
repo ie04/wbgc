@@ -1,7 +1,7 @@
 
 /* 
  * File:   scan.h
- * Author: Iyad Eltifi
+ * Author: ie04
  *
  * Created on November 16, 2018, 5:41 PM
  */
