@@ -8,6 +8,7 @@
       <itemPath>average.h</itemPath>
       <itemPath>constants.h</itemPath>
       <itemPath>error.h</itemPath>
+      <itemPath>file.h</itemPath>
       <itemPath>not_equals_yno.h</itemPath>
       <itemPath>scan.h</itemPath>
       <itemPath>score.h</itemPath>
@@ -54,6 +55,8 @@
       </item>
       <item path="error.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="file.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="not_equals_yno.h" ex="false" tool="3" flavor2="0">
@@ -91,6 +94,8 @@
       <item path="constants.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="error.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="file.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
