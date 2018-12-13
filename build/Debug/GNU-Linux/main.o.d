@@ -1,16 +1,16 @@
-build/Debug/GNU-Linux/main.o: main.c score.h average.h scan.h constants.h \
- error.h not_equals_yno.h add_array_numbers.h
+build/Debug/GNU-Linux/main.o: main.c scale.h average.h sanity.h \
+ constants.h error.h add_array_numbers.h file.h
 
-score.h:
+scale.h:
 
 average.h:
 
-scan.h:
+sanity.h:
 
 constants.h:
 
 error.h:
 
-not_equals_yno.h:
-
 add_array_numbers.h:
+
+file.h:

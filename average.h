@@ -10,10 +10,9 @@
 #define AVERAGE_H
 #include <stdio.h>
 #include <stdio_ext.h>
-#include "scan.h"
+#include "sanity.h"
 #include "constants.h"
 #include "error.h"
-#include "not_equals_yno.h"
 float average(char weight_label[]){
     float sanitized_input = 0;
     char input[5] = {0};

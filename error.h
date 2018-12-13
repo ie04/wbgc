@@ -8,7 +8,7 @@
 
 #ifndef ERROR_H
 #define ERROR_H
-typedef enum error_type { DIRTY_INPUT, OUT_OF_BOUNDS, NEGATIVE, ZERO } error_type;
+typedef enum error_type { DIRTY_INPUT, OUT_OF_BOUNDS, NEGATIVE, ZERO, FW_FAILED } error_type;
 
 char * display_error(error_type error){
     if(error == DIRTY_INPUT)
@@ -19,6 +19,8 @@ char * display_error(error_type error){
         return "Error: Please enter a positive number";
     if(error == ZERO)
         return "Error: Please enter a number greater than zero";
+    if(error == FW_FAILED)
+        return "Error: Failed to write data to file";
     
 }
 
