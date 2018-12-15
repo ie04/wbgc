@@ -32,8 +32,6 @@ typedef struct scale{
 
 scale calculate_score(int index){
     
-    char input[20] = {0}; //Raw user input
-    
     scale new_scale; //Scale object that holds scale attributes
     printf("What's the name of scale #%d?\n: ", index);
     fgets(new_scale.label, MAX_NAME_LENGTH, stdin);
