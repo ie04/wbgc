@@ -53,3 +53,4 @@ dkms.conf
 
 nbproject/
 core
+.dep.inc
