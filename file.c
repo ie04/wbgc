@@ -7,6 +7,7 @@
  */
 #include <stdio.h>
 #include "constants.h"
+#include "scale.h"
 #include "file.h"
 #include "vector.h"
 //This header file will implement file I/O in wbgc

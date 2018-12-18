@@ -5,12 +5,18 @@
  *
  * Created on December 17, 2018, 10:50 PM
  */
+#include <stdio.h>
+#include <stdlib.h>
+#include "constants.h"
 #include "vector.h"
 
-void vector_initiate_float(Vector_float *vector){
-    vector->size = 0;
-    vector->capacity = VECTOR_INIT_CAP;
-    vector->data = malloc(sizeof(float) * vector->capacity);
+void vector_initiate_float(Vector_float *vector) {
+  // initialize size and capacity
+  vector->size = 0;
+  vector->capacity = VECTOR_INIT_CAP;
+
+  // allocate memory for vector->data
+  vector->data = malloc(sizeof(int) * vector->capacity);
 }
 
 void vector_append_float(Vector_float *vector, float value){
@@ -45,5 +51,4 @@ void vector_double_cap_if_full_float(Vector_float *vector){
 
 void vector_free_float(Vector_float *vector){
     free(vector->data);
-}
 }

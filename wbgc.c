@@ -28,7 +28,7 @@ int main(void) {
      */
     system("clear");
     printf("Weight Based Grade Calculator version 0.1\n\n");
-    scale_amount = input_cleaner_int();
+    scale_amount = input_cleaner_int(); //Checks sanity of input
         
     //Sanitizes inputs that are out of bounds
     if(scale_amount > MAX_SCORE_AMOUNT)

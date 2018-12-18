@@ -9,12 +9,13 @@
 #ifndef AVERAGE_H
 #define AVERAGE_H
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdio_ext.h>
 #include "sanity.h"
 #include "constants.h"
 #include "error.h"
 #include "vector.h"
-float average(char weight_label[], Vector_float * vector_toreturn){
+float average(char weight_label[], Vector_float * pVect){
     //Input sanitized
     float sanitized_input = 0;
     
@@ -39,7 +40,7 @@ float average(char weight_label[], Vector_float * vector_toreturn){
         
 
         current_number = input_cleaner_avg();
-        vector_append_float(vector_toreturn, current_number);
+        vector_append_float(pVect, current_number);
         if(current_number >= 0){
             
             //temp var current_number adds value to sum

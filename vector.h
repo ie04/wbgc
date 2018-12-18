@@ -17,14 +17,15 @@ typedef struct{
 
 void vector_initiate_float(Vector_float *vector);
 
-void vector_append_float(Vector_float *vector, int value);
+void vector_append_float(Vector_float *vector, float value);
 
-int vector_get_float(Vector_float *vector, int index);
+float vector_get_float(Vector_float *vector, int index);
 
-void vector_set_float(Vector_float *vector, int index, int value);
+void vector_set_float(Vector_float *vector, int index, float value);
 
-void vector_double_capacity_if_full_float(Vector_float *vector);
+void vector_double_cap_if_full_float(Vector_float *vector);
 
 void vector_free_float(Vector_float *vector);
+
 #endif /* VECTOR_H */
 
