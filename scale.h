@@ -15,20 +15,6 @@
 #include "sanity.h"
 #include "constants.h"
 #include "error.h"
-typedef struct scale{
-    
-    //values averaged by the average function
-    float averaged_values;
-    
-    //How much the scale weighs as a decimal
-    float weight;
-
-    char label[BUFFER];
-    
-    //averaged_values multiplied by weight
-    float grade;
-    
-}scale;
 
 scale calculate_score(int index){
     
