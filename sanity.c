@@ -113,3 +113,18 @@ int input_cleaner_float(char *label){
     
     return sanitized_input;
 }
+float input_cleaner_avg(){
+    float sanitized_input;
+    char input[MAX_INPUT_AMOUNT];
+            do{
+            __fpurge(stdin);
+            fgets(input, BUFFER, stdin);
+            sanitized_input = float_sanity_test_avg(input);
+            if(sanitized_input == -2){
+                printf("%s\n", display_error(DIRTY_INPUT));
+                printf(": ");
+            }
+        }while(sanitized_input == -2);
+        
+        return sanitized_input;
+}

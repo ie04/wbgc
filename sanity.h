@@ -16,6 +16,6 @@ int sanitize_yno(char *yno);
 int not_equals_yno();
 int input_cleaner_int();
 int input_cleaner_float(char *label);
-    
+float input_cleaner_avg();
 #endif /* SANITY_H */
 

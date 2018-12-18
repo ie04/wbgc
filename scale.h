@@ -16,16 +16,20 @@
 #include "constants.h"
 #include "error.h"
 
+
+
 scale calculate_score(int index){
     
     scale new_scale; //Scale object that holds scale attributes
+    vector_initiate_float(&new_scale.scores);
+    
     printf("What's the name of scale #%d?\n: ", index);
     fgets(new_scale.label, MAX_NAME_LENGTH, stdin);
     system("clear");
     //removes the newline added by fgets
     strtok(new_scale.label, "\n");
     
-    new_scale.averaged_values = average(new_scale.label);
+    new_scale.averaged_values = average(new_scale.label, &new_scale.scores);
 
 
     //Redirects to sanity checker

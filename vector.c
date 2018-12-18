@@ -13,7 +13,7 @@ void vector_initiate_float(Vector_float *vector){
     vector->data = malloc(sizeof(float) * vector->capacity);
 }
 
-void vector_append_float(Vector_float *vector, int value){
+void vector_append_float(Vector_float *vector, float value){
     vector_double_cap_if_full_float(vector);
     vector->data[vector->size++] = value;
 }
@@ -26,7 +26,7 @@ float vector_get_float(Vector_float *vector, int index){
   return vector->data[index];
 }
 
-void vector_set_float(Vector_float *vector, int index, int value){
+void vector_set_float(Vector_float *vector, int index, float value){
    while (index >= vector->size) {
     vector_append_float(vector, 0);
   }

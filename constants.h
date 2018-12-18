@@ -14,10 +14,13 @@
 #define MAX_LABEL_AMOUNT 50
 #define MAX_NAME_LENGTH 20
 #define BUFFER 2096
-
+#include "vector.h"
 typedef enum error_type { DIRTY_INPUT, OUT_OF_BOUNDS, NEGATIVE, ZERO, FW_FAILED } error_type;
 
 typedef struct scale{
+    
+    //A vector of all user inputted scores
+    Vector_float scores;
     
     //values averaged by the average function
     float averaged_values;
