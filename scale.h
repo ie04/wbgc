@@ -17,24 +17,6 @@
 #include "error.h"
 #include "vector.h"
 
-typedef struct scale{
-    
-    //A vector of all user inputted scores
-    Vector_float scores;
-    
-    //values averaged by the average function
-    float averaged_values;
-    
-    //How much the scale weighs as a decimal
-    float weight;
-
-    char label[BUFFER];
-    
-    //averaged_values multiplied by weight
-    float grade;
-    
-}scale;
-
 scale calculate_score(int index){
     
     scale new_scale; //Scale object that holds scale attributes
@@ -47,13 +29,14 @@ scale calculate_score(int index){
     strtok(new_scale.label, "\n");
     
     new_scale.averaged_values = average(new_scale.label, &new_scale.scores);
-
+    
 
     //Redirects to sanity checker
-    new_scale.weight = input_cleaner_float(new_scale.label);
+    new_scale.weight = input_cleaner_weight(new_scale.label);
     
     //l-value is the percentage scale represents in the final grade
-    new_scale.grade  = new_scale.averaged_values * new_scale.weight;
+    //new_scale.weight must be a fraction 
+    new_scale.grade  = new_scale.averaged_values * (new_scale.weight / 100);
     
     return new_scale;
     
@@ -61,6 +44,6 @@ scale calculate_score(int index){
 
 void display_scale(scale input_scale){
     printf("Your average for scale %s is %.1f (scale %s is %.0f%% of your overall grade)\n", input_scale.label, input_scale.averaged_values,
-                                                                                              input_scale.label, (input_scale.weight * 100));
+                                                                                              input_scale.label, input_scale.weight);
 }
 #endif /* SCALE_H */

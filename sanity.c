@@ -78,7 +78,7 @@ int not_equals_yno(){
         else
             exit(1);
 }
-int input_cleaner_int(){
+int input_cleaner_scale_amount(){
     char input[MAX_INPUT_AMOUNT] = {0}; //Raw user input
     int sanitized_input;
         do{
@@ -96,23 +96,27 @@ int input_cleaner_int(){
     
     return sanitized_input;
 }
-int input_cleaner_float(char *label){
-    float sanitized_input;
-    char input[MAX_INPUT_AMOUNT];
+
+int input_cleaner_weight(char *label){
+    float sanitized_input = 0.0;
+    char input[MAX_INPUT_AMOUNT] = {0};
     
     do{
         printf("How much does scale \"%s\" weigh for the class (percentage)?\n: ", label);
         __fpurge(stdin); //Clears stdin from carriage-returns
         fgets(input, BUFFER, stdin);
-        sanitized_input = float_sanity_test(input) / 100;
+        
+        //Weights are divided by 100 to preserve bounds checking below
+        sanitized_input = (float_sanity_test(input) / 100);
         system("clear");
         if((sanitized_input == -1) || (sanitized_input > 1) || (sanitized_input < 0.01))
             printf("%s\n", display_error(DIRTY_INPUT));
         
     }while((sanitized_input == -1) || (sanitized_input > 1) || (sanitized_input < 0.01));
     
-    return sanitized_input;
+    return (sanitized_input * 100);
 }
+
 float input_cleaner_avg(){
     float sanitized_input;
     char input[MAX_INPUT_AMOUNT];

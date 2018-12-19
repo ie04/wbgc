@@ -54,3 +54,8 @@ dkms.conf
 nbproject/
 core
 .dep.inc
+data
+/tests/
+/build/
+/dist/
+/Makefile.old
