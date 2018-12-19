@@ -16,11 +16,7 @@
 #include "error.h"
 #include "vector.h"
 float average(char weight_label[], Vector_float * pVect){
-    //Input sanitized
-    float sanitized_input = 0;
-    
-    char input[5] = {0};
-    //current user-inputted number
+
     float current_number = 0;
     
     //sum of user inputted numbers
@@ -40,7 +36,9 @@ float average(char weight_label[], Vector_float * pVect){
         
 
         current_number = input_cleaner_avg();
-        vector_append_float(pVect, current_number);
+        if(current_number >= 0)
+            vector_append_float(pVect, current_number);
+        
         if(current_number >= 0){
             
             //temp var current_number adds value to sum

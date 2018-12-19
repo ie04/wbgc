@@ -9,12 +9,8 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 #define VECTOR_INIT_CAP 100
-typedef struct{
-    int size;
-    int capacity;
-    float * data;
-}Vector_float;
-
+#include "constants.h"
+//Float Vector
 void vector_initiate_float(Vector_float *vector);
 
 void vector_append_float(Vector_float *vector, float value);
@@ -27,5 +23,17 @@ void vector_double_cap_if_full_float(Vector_float *vector);
 
 void vector_free_float(Vector_float *vector);
 
+//Char Vector
+void vector_initiate_char(Vector_char* vector);
+
+void vector_append_char(Vector_char* vector, char value);
+
+char vector_get_char(Vector_char* vector, int index);
+
+char vector_set_char(Vector_char* vector, int index, char value);
+
+void vector_double_cap_if_full_char(Vector_char *vector);
+
+void vector_free_char(Vector_float *vector);
 #endif /* VECTOR_H */
 

@@ -1,20 +1,25 @@
-output: wbgc.o sanity.o error.o file.o vector.o
-	gcc error.o wbgc.o sanity.o vector.o file.o -o wbgc
+# Variables
+cc=gcc
+CFLAGS=-c -Wall -Wextra -pedantic
+SOURCES=wbgc.c error.c file.c vector.c
+EXECUTABLE=wbgc
+OBJECTS=wbgc.o sanity.o error.o file.o vector.o
+
+all: $(EXECUTABLE)
+
+debug: CFLAGS += -g
+debug: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(cc) -o $(EXECUTABLE) $(OBJECTS)
 
 wbgc.o: wbgc.c
-	gcc -c wbgc.c
+sanity.o: sanity.c sanity.h
+error.o: error.c error.h
+file.o: file.c file.h
+vector.o: vector.c vector.h
 
-sanity.o: sanity.c
-	gcc -c sanity.c
-
-error.o: error.c
-	gcc -c error.c
-
-file.o: file.c
-	gcc -c file.c
-
-vector.o:
-	gcc -Wall -pedantic -Wstrict-prototypes -Werror -c vector.c
-
+.PHONY: clean
 clean:
-	rm *.o
+	rm $(EXECUTABLE) $(OBJECTS)
+
