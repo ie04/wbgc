@@ -85,7 +85,11 @@ void vector_double_cap_if_full_char(Vector_char *vector){
     vector->data = realloc(vector->data, sizeof(char) * vector->capacity);
   }
 }
-
+void vector_print_char(Vector_char vec_to_print){
+    for(int i=0;i<vec_to_print.size;i++){
+        printf("%c", vector_get_char(&vec_to_print, i));
+    }
+}
 void vector_free_char(Vector_char *vector){
     free(vector->data);
 }

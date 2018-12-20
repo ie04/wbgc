@@ -83,14 +83,14 @@ int input_cleaner_scale_amount(){
     int sanitized_input;
         do{
     __fpurge(stdin);
-    printf("Enter amount of different scales (maximum %d)\n: ", MAX_SCORE_AMOUNT);
+    printf("Enter amount of different scales (maximum %d)\n: ", MAX_SCALE_AMOUNT);
     fgets(input, BUFFER, stdin);
     system("clear"); // Sends clear command to terminal
     sanitized_input = int_sanity_test(input);
     if(sanitized_input < 0)
-        printf("%s\n", display_error(NEGATIVE));
-    if(sanitized_input > MAX_SCORE_AMOUNT)
-        printf("%s, auto-setting to %d\n", display_error(OUT_OF_BOUNDS), MAX_SCORE_AMOUNT);
+        printf("%s between 1 and %d\n", display_error(NEGATIVE), MAX_SCALE_AMOUNT);
+    if(sanitized_input > MAX_SCALE_AMOUNT)
+        printf("%s, auto-setting to %d\n", display_error(OUT_OF_BOUNDS), MAX_SCALE_AMOUNT);
     
     }while((sanitized_input == -1) || (sanitized_input < 1));
     

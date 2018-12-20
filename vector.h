@@ -34,6 +34,8 @@ void vector_set_char(Vector_char* vector, int index, char value);
 
 void vector_double_cap_if_full_char(Vector_char *vector);
 
+void vector_print_char(Vector_char vec_to_print);
+
 void vector_free_char(Vector_char *vector);
 #endif /* VECTOR_H */
 

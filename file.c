@@ -11,13 +11,15 @@
 #include "vector.h"
 //This header file will implement file I/O in wbgc
 
+//Creates or overwrites data file
 void create_file(const char *filename) {
     FILE * local_fp;
     local_fp = fopen(filename, "w");
-    fprintf(local_fp, "#DO NOT APPEND THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING#\n\n");
+    fprintf(local_fp, "0\n#DO NOT APPEND THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING\n\n");
     fclose(local_fp);
 }
 
+//Tests if a file exists
 int does_file_exist(const char * filename) {
     FILE *local_fp;
     if ((local_fp = fopen(filename, "r"))) {
@@ -26,6 +28,8 @@ int does_file_exist(const char * filename) {
     }
     return 0;
 }
+
+//Reads entire file and returns char vector
 Vector_char file_read(const char* filename){
     Vector_char filebuf;
     vector_initiate_char(&filebuf);
@@ -39,6 +43,7 @@ Vector_char file_read(const char* filename){
     fclose(local_fp);
     return filebuf;
 }
+
 
 void append_string_to_file(const char* filename, const char* text_to_append) {
     FILE * local_fp;
@@ -79,6 +84,7 @@ void append_float_vector_to_file(const char* filename, Vector_float vec_to_appen
         append_char_to_file(filename, ':');
     }
     append_char_to_file(filename, '/');
+    vector_free_float(&vec_to_append);
 }
 void append_scale(const char* filename, scale scale_to_append){
     append_string_to_file(filename, scale_to_append.label);

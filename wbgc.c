@@ -21,51 +21,48 @@ int main(void) {
     
     int scale_amount = 0; //Amount of different scales user inputs
     float calculated_grade = 0; //Final calculated grade
-    float scored_numbers[MAX_SCORE_AMOUNT] = {0}; /*Array of numbers that are weighted and scored*/  
+    float scored_numbers[MAX_SCALE_AMOUNT] = {0}; /*Array of numbers that are weighted and scored*/  
+    float weights[MAX_SCALE_AMOUNT] = {0}; //array of scale percentages 
+    float added_weights = 0;
     const char* filename = "data";
-    /*
-     * the sanity_test() method returns -1 if user-input is not an integer,
-     * and the number user inputted otherwise
-     */
+    
     system("clear");
     printf("Weight Based Grade Calculator version 0.1\n\n");
+  
     scale_amount = input_cleaner_scale_amount(); //Checks sanity of input
         
     //Sanitizes inputs that are out of bounds
-    if(scale_amount > MAX_SCORE_AMOUNT)
-        scale_amount = MAX_SCORE_AMOUNT;
+    if(scale_amount > MAX_SCALE_AMOUNT)
+        scale_amount = MAX_SCALE_AMOUNT;
     
-    //User-defined scales stored in an array
+    //User-defined scales stored in an array with size defined by user 
     scale user_scales[scale_amount];
     
-    //array of scale percentages 
-    float weights[MAX_SCORE_AMOUNT] = {0};
-    float added_weights = 0;
-    for(int i=0; i<scale_amount; i++){
-        user_scales[i] = calculate_score(i+1);
+    
+    for(int i=0; i<scale_amount; i++){  //scales are inputted and stored in array
+        user_scales[i] = calculate_score(i+1); 
     }
     
-    for(int i=0;i<scale_amount; i++){
+    for(int i=0;i<scale_amount; i++){  
         
-        //Weights are multiplied by 100 from fraction value
         weights[i] = (user_scales[i].weight);
     }
     added_weights = add_array_numbers_float(weights);
-    if(added_weights != 100){
+    if(added_weights != 100){ //Tests if weight percentages add up to 100, if not then restart
         if(not_equals_yno() == 1)
             main();
     }
         
-    for(int i=0; i<scale_amount; i++){
+    for(int i=0; i<scale_amount; i++){ //Displays scale details on screen
         display_scale(user_scales[i]);
         append_scale(filename, user_scales[i]);
     }
     
-    for(int i=0; i<scale_amount; i++){
+    for(int i=0; i<scale_amount; i++){ //Total grade points stored in separate float array
         scored_numbers[i] = user_scales[i].grade;
     }
-    //r-value adds array numbers
-    calculated_grade = add_array_numbers_float(scored_numbers);
+ 
+    calculated_grade = add_array_numbers_float(scored_numbers); //Float array is added up to final answer
     printf("Your class grade is %.1f%%\n", calculated_grade);
     return 0;
 }

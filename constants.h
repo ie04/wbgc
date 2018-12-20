@@ -9,26 +9,27 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#define MAX_SCORE_AMOUNT 5
-#define MAX_INPUT_AMOUNT 5
-#define MAX_LABEL_AMOUNT 50
-#define MAX_NAME_LENGTH 20
-#define BUFFER 2096
+    #define MAX_SCALE_AMOUNT 5
+    #define MAX_INPUT_AMOUNT 5
+    #define MAX_LABEL_AMOUNT 50
+    #define MAX_NAME_LENGTH 20
+    #define BUFFER 2096
 
-typedef struct{
-    int size;
-    int capacity;
-    float * data;
-}Vector_float;
+    typedef struct{
+        int size;
+        int capacity;
+        float * data;
+    }Vector_float;
 
-typedef struct{
-    int size;
-    int capacity;
-    char * data;
-}Vector_char;
-typedef struct scale{
-    
-    //A vector of all user inputted scores
+    typedef struct{
+        int size;
+        int capacity;
+        char * data;
+    }Vector_char;
+
+    typedef struct scale{
+
+        //A vector of all user inputted scores
     Vector_float scores;
     
     //values averaged by the average function
@@ -43,6 +44,16 @@ typedef struct scale{
     float grade;
     
 }scale;
+
+typedef struct{
+    
+    Vector_char label; //Class name
+    
+    scale user_scales[MAX_SCALE_AMOUNT]; //All scales inputted by user
+    
+    float calculated_grade; //Final calculated grade for class
+    
+}wbgc_class;
 
 typedef enum error_type { DIRTY_INPUT, OUT_OF_BOUNDS, NEGATIVE, ZERO, FW_FAILED } error_type;
 

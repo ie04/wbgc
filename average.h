@@ -39,8 +39,7 @@ float average(char weight_label[], Vector_float * pVect){
         if(current_number >= 0)
             vector_append_float(pVect, current_number);
         
-        if(current_number >= 0){
-            
+        if(current_number >= 0){            
             //temp var current_number adds value to sum
             current_sum += current_number;
             number_count++;
@@ -53,7 +52,7 @@ float average(char weight_label[], Vector_float * pVect){
     //Finds average of user-inputted numbers and the amount of numbers
     //number_count typecasted from int
     /*
-     * The if statements are to protect against divide-by-zero errors which occur
+     * The if statements are to protect against potential divide-by-zero errors which occur
      * if no numbers are inputted. If this happens, the average() function will
      * simply return 0.
      */
