@@ -15,7 +15,11 @@
 #include "constants.h"
 #include "error.h"
 #include "vector.h"
+<<<<<<< HEAD
 float average(char weight_label[], vector_float * pVect){
+=======
+float average(char weight_label[], Vector_float * pVect){
+>>>>>>> refs/remotes/origin/file_implementation
 
     float current_number = 0;
     
@@ -39,7 +43,12 @@ float average(char weight_label[], vector_float * pVect){
         if(current_number >= 0)
             vector_append_float(pVect, current_number);
         
+<<<<<<< HEAD
         if(current_number >= 0){            
+=======
+        if(current_number >= 0){
+            
+>>>>>>> refs/remotes/origin/file_implementation
             //temp var current_number adds value to sum
             current_sum += current_number;
             number_count++;
