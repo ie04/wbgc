@@ -31,23 +31,6 @@
 
         //A vector of all user inputted scores
     vector_float scores;
-
-typedef struct{
-    int size;
-    int capacity;
-    float * data;
-}Vector_float;
-
-typedef struct{
-    int size;
-    int capacity;
-    char * data;
-}Vector_char;
-typedef struct scale{
-    
-    //A vector of all user inputted scores
-    Vector_float scores;
-
     
     //values averaged by the average function
     float averaged_values;
@@ -61,7 +44,6 @@ typedef struct scale{
     float grade;
     
 }scale;
-
 
 typedef struct{
     
