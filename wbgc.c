@@ -13,57 +13,54 @@
 #include "constants.h"
 #include "error.h"
 #include "file.h"
+#include "conversions.h"
 /*
  * 
  */
 int main(void) {
 
-    
-    int scale_amount = 0; //Amount of different scales user inputs
-    float calculated_grade = 0; //Final calculated grade
-    float scored_numbers[MAX_SCALE_AMOUNT] = {0}; /*Array of numbers that are weighted and scored*/  
-    float weights[MAX_SCALE_AMOUNT] = {0}; //array of scale percentages 
-    float added_weights = 0;
+    wbgc_class new_class; //Creates class struct to hold data for class
     const char* filename = "data";
     
     system("clear");
     printf("Weight Based Grade Calculator version 0.1\n\n");
-  
-    scale_amount = input_cleaner_scale_amount(); //Checks sanity of input
+    
+    new_class.scale_amount = input_cleaner_scale_amount(); //Checks sanity of input
         
     //Sanitizes inputs that are out of bounds
-    if(scale_amount > MAX_SCALE_AMOUNT)
-        scale_amount = MAX_SCALE_AMOUNT;
+    if(new_class.scale_amount > MAX_SCALE_AMOUNT)
+        new_class.scale_amount = MAX_SCALE_AMOUNT;
     
-    //User-defined scales stored in an array with size defined by user 
-    scale user_scales[scale_amount];
-    
-    
-    for(int i=0; i<scale_amount; i++){  //scales are inputted and stored in array
-        user_scales[i] = calculate_score(i+1); 
+ 
+       
+    for(int i=0; i<new_class.scale_amount; i++){  //scales are inputted and stored in array
+        new_class.user_scales[i] = calculate_score(i+1); 
     }
-    
-    for(int i=0;i<scale_amount; i++){  
+ 
+    for(int i=0;i<new_class.scale_amount; i++){  
         
-        weights[i] = (user_scales[i].weight);
+        new_class.weights[i] = (new_class.user_scales[i].weight);
     }
-    added_weights = add_array_numbers_float(weights);
-    if(added_weights != 100){ //Tests if weight percentages add up to 100, if not then restart
+    new_class.added_weights = add_array_numbers_float(new_class.weights);
+    
+    if(new_class.added_weights != 100){ //Tests if weight percentages add up to 100, if not then restart
         if(not_equals_yno() == 1)
             main();
     }
         
-    for(int i=0; i<scale_amount; i++){ //Displays scale details on screen
-        display_scale(user_scales[i]);
-        append_scale(filename, user_scales[i]);
+    for(int i=0; i<new_class.scale_amount; i++){ //Displays scale details on screen
+        display_scale(new_class.user_scales[i]);
+        file_append_scale(filename, new_class.user_scales[i]);
     }
     
-    for(int i=0; i<scale_amount; i++){ //Total grade points stored in separate float array
-        scored_numbers[i] = user_scales[i].grade;
+    for(int i=0; i<new_class.scale_amount; i++){ //Total grade points stored in separate float array
+        new_class.scored_numbers[i] = new_class.user_scales[i].grade;
     }
  
-    calculated_grade = add_array_numbers_float(scored_numbers); //Float array is added up to final answer
-    printf("Your class grade is %.1f%%\n", calculated_grade);
+    new_class.calculated_grade = add_array_numbers_float(new_class.scored_numbers); //Float array is added up to final answer
+    printf("Your class grade is %.1f%%\n", new_class.calculated_grade);
+    int bro = file_get(filename,0); 
+    printf("%s", int_to_char_array(bro));
     return 0;
 }
 

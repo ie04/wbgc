@@ -19,18 +19,18 @@
         int size;
         int capacity;
         float * data;
-    }Vector_float;
+    }vector_float;
 
     typedef struct{
         int size;
         int capacity;
         char * data;
-    }Vector_char;
+    }vector_char;
 
     typedef struct scale{
 
         //A vector of all user inputted scores
-    Vector_float scores;
+    vector_float scores;
     
     //values averaged by the average function
     float averaged_values;
@@ -47,9 +47,17 @@
 
 typedef struct{
     
-    Vector_char label; //Class name
+    vector_char label; //Class name
+    
+    int scale_amount;
     
     scale user_scales[MAX_SCALE_AMOUNT]; //All scales inputted by user
+    
+    float weights[MAX_SCALE_AMOUNT]; //array of scale percentages
+    
+    float added_weights = 0;
+    
+    float scored_numbers[MAX_SCALE_AMOUNT];
     
     float calculated_grade; //Final calculated grade for class
     

@@ -7,10 +7,11 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "constants.h"
 #include "vector.h"
 
-void vector_initiate_float(Vector_float *vector) {
+void vector_initiate_float(vector_float *vector) {
   // initialize size and capacity
   vector->size = 0;
   vector->capacity = VECTOR_INIT_CAP;
@@ -19,12 +20,12 @@ void vector_initiate_float(Vector_float *vector) {
   vector->data = malloc(sizeof(float) * vector->capacity);
 }
 
-void vector_append_float(Vector_float *vector, float value){
+void vector_append_float(vector_float *vector, float value){
     vector_double_cap_if_full_float(vector);
     vector->data[vector->size++] = value;
 }
 
-float vector_get_float(Vector_float *vector, int index){
+float vector_get_float(vector_float *vector, int index){
     if (index >= vector->size || index < 0) {
     printf("Index %d out of bounds for vector of size %d\n", index, vector->size);
     exit(1);
@@ -32,7 +33,7 @@ float vector_get_float(Vector_float *vector, int index){
   return vector->data[index];
 }
 
-void vector_set_float(Vector_float *vector, int index, float value){
+void vector_set_float(vector_float *vector, int index, float value){
    while (index >= vector->size) {
     vector_append_float(vector, 0);
   }
@@ -41,7 +42,7 @@ void vector_set_float(Vector_float *vector, int index, float value){
   vector->data[index] = value;
 }
 
-void vector_double_cap_if_full_float(Vector_float *vector){
+void vector_double_cap_if_full_float(vector_float *vector){
     if (vector->size >= vector->capacity) {
     // double vector->capacity and resize the allocated memory accordingly
     vector->capacity *= 2;
@@ -49,28 +50,38 @@ void vector_double_cap_if_full_float(Vector_float *vector){
   }
 }
 
-void vector_free_float(Vector_float *vector){
+void vector_free_float(vector_float *vector){
     free(vector->data);
 }
 
 //Char Vector
-void vector_initiate_char(Vector_char* vector){
+void vector_initiate_char(vector_char* vector){
     vector->size = 0;
     vector->capacity = VECTOR_INIT_CAP;
     vector->data = malloc(sizeof(char) * vector->capacity);
 }
-void vector_append_char(Vector_char* vector, char value){
+void vector_append_char(vector_char* vector, char value){
     vector_double_cap_if_full_char(vector);
     vector->data[vector->size++] = value;
 }
-char vector_get_char(Vector_char* vector, int index){
+
+void vector_append_array_char(vector_char* vector, const char* append_arr){
+    if(vector->data == NULL)
+        vector_initiate_char(vector);
+    for(int i=0;i<strlen(append_arr);i++){
+        vector_append_char(vector, append_arr[i]);
+    }
+    
+}
+
+char vector_get_char(vector_char* vector, int index){
     if (index >= vector->size || index < 0) {
     printf("Index %d out of bounds for vector of size %d\n", index, vector->size);
     exit(1);
   }
   return vector->data[index];
 }
-void vector_set_char(Vector_char* vector, int index, char value){
+void vector_set_char(vector_char* vector, int index, char value){
     while (index >= vector->size) {
     vector_append_char(vector, 0);
   }
@@ -78,18 +89,18 @@ void vector_set_char(Vector_char* vector, int index, char value){
   // set the value at the desired index
   vector->data[index] = value;
 }
-void vector_double_cap_if_full_char(Vector_char *vector){
+void vector_double_cap_if_full_char(vector_char *vector){
     if (vector->size >= vector->capacity) {
     // double vector->capacity and resize the allocated memory accordingly
     vector->capacity *= 2;
     vector->data = realloc(vector->data, sizeof(char) * vector->capacity);
   }
 }
-void vector_print_char(Vector_char vec_to_print){
+void vector_print_char(vector_char vec_to_print){
     for(int i=0;i<vec_to_print.size;i++){
         printf("%c", vector_get_char(&vec_to_print, i));
     }
 }
-void vector_free_char(Vector_char *vector){
+void vector_free_char(vector_char *vector){
     free(vector->data);
 }

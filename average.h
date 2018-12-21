@@ -15,7 +15,7 @@
 #include "constants.h"
 #include "error.h"
 #include "vector.h"
-float average(char weight_label[], Vector_float * pVect){
+float average(char weight_label[], vector_float * pVect){
 
     float current_number = 0;
     
