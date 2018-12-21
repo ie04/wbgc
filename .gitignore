@@ -59,3 +59,5 @@ data
 /build/
 /dist/
 /Makefile.old
+/Makefile
+/Makefile.orig

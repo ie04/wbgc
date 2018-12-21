@@ -15,6 +15,7 @@
     #define MAX_NAME_LENGTH 20
     #define BUFFER 2096
 
+<<<<<<< HEAD
     typedef struct{
         int size;
         int capacity;
@@ -31,6 +32,23 @@
 
         //A vector of all user inputted scores
     vector_float scores;
+=======
+typedef struct{
+    int size;
+    int capacity;
+    float * data;
+}Vector_float;
+
+typedef struct{
+    int size;
+    int capacity;
+    char * data;
+}Vector_char;
+typedef struct scale{
+    
+    //A vector of all user inputted scores
+    Vector_float scores;
+>>>>>>> refs/remotes/origin/file_implementation
     
     //values averaged by the average function
     float averaged_values;
@@ -44,6 +62,7 @@
     float grade;
     
 }scale;
+<<<<<<< HEAD
 
 typedef struct{
     
@@ -62,6 +81,8 @@ typedef struct{
     float calculated_grade; //Final calculated grade for class
     
 }wbgc_class;
+=======
+>>>>>>> refs/remotes/origin/file_implementation
 
 typedef enum error_type { DIRTY_INPUT, OUT_OF_BOUNDS, NEGATIVE, ZERO, FW_FAILED } error_type;
 

@@ -55,6 +55,7 @@ void vector_free_float(vector_float *vector){
 }
 
 //Char Vector
+<<<<<<< HEAD
 void vector_initiate_char(vector_char* vector){
     vector->size = 0;
     vector->capacity = VECTOR_INIT_CAP;
@@ -104,3 +105,12 @@ void vector_print_char(vector_char vec_to_print){
 void vector_free_char(vector_char *vector){
     free(vector->data);
 }
+=======
+void vector_initiate_char(Vector_char* vector){
+    vector->size = 0;
+    vector->capacity = VECTOR_INIT_CAP
+    vector->data = malloc(sizeof(char)) * vector->capacity;
+}
+
+
+>>>>>>> refs/remotes/origin/file_implementation

@@ -16,7 +16,11 @@
 void file_create(const char *filename) {
     FILE * local_fp;
     local_fp = fopen(filename, "w");
+<<<<<<< HEAD
     fprintf(local_fp, "0\n#DO NOT APPEND THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING\n\n");
+=======
+    fprintf(local_fp, "#DO NOT APPEND THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING\n\n");
+>>>>>>> refs/remotes/origin/file_implementation
     fclose(local_fp);
 }
 
@@ -30,6 +34,7 @@ int file_exists(const char * filename) {
     return 0;
 }
 
+<<<<<<< HEAD
 //Reads entire file and returns char vector
 int file_get(const char* filename, int pos){
     int to_return;
@@ -74,34 +79,62 @@ void file_append_string(const char* filename, const char* text_to_append) {
     FILE * local_fp;
     if(!file_exists(filename))
         file_create(filename);
+=======
+void append_string_to_file(const char* filename, const char* text_to_append) {
+    FILE * local_fp;
+    if(!does_file_exist(filename))
+        create_file(filename);
+>>>>>>> refs/remotes/origin/file_implementation
     local_fp = fopen(filename, "a");
     fprintf(local_fp, "%s", text_to_append);
     fclose(local_fp);
 }
+<<<<<<< HEAD
 void file_append_char(const char* filename, const char char_to_append) {
     FILE * local_fp;
     if(!file_exists(filename))
         file_create(filename);
+=======
+void append_char_to_file(const char* filename, const char char_to_append) {
+    FILE * local_fp;
+    if(!does_file_exist(filename))
+        create_file(filename);
+>>>>>>> refs/remotes/origin/file_implementation
     local_fp = fopen(filename, "a");
     fprintf(local_fp, "%c", char_to_append);
     fclose(local_fp);
 }
+<<<<<<< HEAD
 void file_append_int(const char* filename, const int int_to_append) {
     FILE * local_fp;
     if(!file_exists(filename))
         file_create(filename);
+=======
+void append_int_to_file(const char* filename, const int int_to_append) {
+    FILE * local_fp;
+    if(!does_file_exist(filename))
+        create_file(filename);
+>>>>>>> refs/remotes/origin/file_implementation
     local_fp = fopen(filename, "a");
     fprintf(local_fp, "%d", int_to_append);
     fclose(local_fp);
 }
+<<<<<<< HEAD
 void file_append_float(const char* filename, const float float_to_append) {
     FILE * local_fp;
     if(!file_exists(filename))
         file_create(filename);
+=======
+void append_float_to_file(const char* filename, const float float_to_append) {
+    FILE * local_fp;
+    if(!does_file_exist(filename))
+        create_file(filename);
+>>>>>>> refs/remotes/origin/file_implementation
     local_fp = fopen(filename, "a");
     fprintf(local_fp, "%.2f", float_to_append);
     fclose(local_fp);
 }
+<<<<<<< HEAD
 void file_append_float_vector(const char* filename, vector_float vec_to_append){
     for(int i=0;i<vec_to_append.size;i++){
         file_append_float(filename, vector_get_float(&vec_to_append, i));
@@ -130,4 +163,25 @@ void file_append_scale(const char* filename, scale scale_to_append){
 }
 scale file_construct_scale(const char* filename){
     
+=======
+void append_vector_to_file(const char* filename, Vector_float vec_to_append){
+    for(int i=0;i<vec_to_append.size;i++){
+        append_float_to_file(filename, vector_get_float(&vec_to_append, i));
+        if(i != (vec_to_append.size-1))
+        append_char_to_file(filename, ':');
+    }
+    append_char_to_file(filename, '/');
+}
+void append_scale(const char* filename, scale scale_to_append){
+    append_string_to_file(filename, scale_to_append.label);
+    append_char_to_file(filename, '/');
+    append_float_to_file(filename, scale_to_append.averaged_values);
+    append_char_to_file(filename, '/');
+    append_float_to_file(filename, scale_to_append.grade);
+    append_char_to_file(filename, '/');
+    append_float_to_file(filename, scale_to_append.weight);
+    append_char_to_file(filename, '/');
+    append_vector_to_file(filename, scale_to_append.scores);
+    append_string_to_file(filename, "$\n");
+>>>>>>> refs/remotes/origin/file_implementation
 }
